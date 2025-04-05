@@ -63,19 +63,9 @@ public class SpousteciTrida {
     }
 
     cervenaMiska.nalozSiCelyObsah(maslo125g);
-
     mixer.zamichej(cervenaMiska);
-
     kuchynskaVaha.vynulujSeS(zlutaMiska);
 
-/*   while (kuchynskaVaha.zjistiHmotnost(zlutaMiska)!=250) {
-      if (kuchynskaVaha.zjistiHmotnost(zlutaMiska) < 250) {
-        zlutaMiska.nalozSiTrochu(pytlikMouky);
-      } else if (kuchynskaVaha.zjistiHmotnost(zlutaMiska) > 250){
-        zlutaMiska.vylozSiTrochu();
-      }
-   }
-*/
     while (kuchynskaVaha.zjistiHmotnost(zlutaMiska)!=250){
       while (kuchynskaVaha.zjistiHmotnost(zlutaMiska)<250){
         zlutaMiska.nalozSiTrochu(pytlikMouky);
@@ -85,54 +75,36 @@ public class SpousteciTrida {
       }
     }
 
+    cervenaMiska.nalozSiObsahJineMisky(zlutaMiska);
+    cervenaMiska.nalozSiCelyObsah(prasekDoPeciva);
 
-
-  cervenaMiska.nalozSiObsahJineMisky(zlutaMiska);
-  cervenaMiska.nalozSiCelyObsah(prasekDoPeciva);
-
-  while(!cervenaMiska.isDobreZamichane()) {
+    while(!cervenaMiska.isDobreZamichane()) {
       mixer.zamichej(cervenaMiska);
-  }
-  plech.preberSiObsah(cervenaMiska);
+    }
 
-  for(int i = 0;i<50;i++){
-    plech.posypSeKusem(ovoce);
-  }
+    plech.preberSiObsah(cervenaMiska);
 
-  trouba.zapniSe(180);
-  while(!trouba.isPredehrata()){
+    for(int i = 0; i < 50 ; i++){
+      plech.posypSeKusem(ovoce);
+    }
+
+    trouba.zapniSe(180);
+
+    while(!trouba.isPredehrata()){
       trouba.nechejPect(5);
-  }
-  trouba.vlozSiDovnitr(plech);
-  trouba.nechejPect(25);
-  trouba.vypniSe();
-  trouba.vyndejObsahVen();
-
-
-
-
-
-
-
-/*     while(kuchynskaVaha.zjistiHmotnost(zlutaMiska)<=250){
-      zlutaMiska.nalozSiTrochu(pytlikMouky);
-   }
-
- */
-
-
-
-
-  /*  while(zlutaMiska<250){
-      zlutaMiska.nalozSiTrochu(pytlikMouky);
     }
-*/
 
- /*   boolean dobreZamichane = cervenaMiska.isDobreZamichane();
-    while(dobreZamichane==false){
-      mixer.zamichej(cervenaMiska);
-    }
-*/
+    trouba.vlozSiDovnitr(plech);
+    trouba.nechejPect(25);
+    trouba.vypniSe();
+    trouba.vyndejObsahVen();
+
+
+
+
+
+
+
 
 
 
