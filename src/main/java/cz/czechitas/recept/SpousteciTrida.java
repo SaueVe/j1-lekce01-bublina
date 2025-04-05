@@ -11,6 +11,7 @@ import cz.czechitas.recept.suroviny.Mouka;
 import cz.czechitas.recept.suroviny.Ovoce;
 import cz.czechitas.recept.suroviny.PrasekDoPeciva;
 import cz.czechitas.recept.suroviny.Vajicka;
+import cz.czechitas.recept.suroviny.intf.NadobaSKusovouSurovinou;
 
 public class SpousteciTrida {
 
@@ -49,7 +50,101 @@ public class SpousteciTrida {
     // Pouzivejte napovidani v editoru.
     // Vyskakuje samo nebo pomoci Ctrl+Mezernik
 
-    cervenaMiska.nalozSiJedenKus(vajicka);
+    // cervenaMiska.nalozSiJedenKus(vajicka);
+
+
+    for (int i = 0; i < 4; i++) {
+      cervenaMiska.nalozSiJedenKus(vajicka);
+    }
+
+    cervenaMiska.nalozSiCelyObsah(pytlikCukru);
+    while(!cervenaMiska.isDobreZamichane()) {
+      mixer.zamichej(cervenaMiska);
+    }
+
+    cervenaMiska.nalozSiCelyObsah(maslo125g);
+
+    mixer.zamichej(cervenaMiska);
+
+    kuchynskaVaha.vynulujSeS(zlutaMiska);
+
+/*   while (kuchynskaVaha.zjistiHmotnost(zlutaMiska)!=250) {
+      if (kuchynskaVaha.zjistiHmotnost(zlutaMiska) < 250) {
+        zlutaMiska.nalozSiTrochu(pytlikMouky);
+      } else if (kuchynskaVaha.zjistiHmotnost(zlutaMiska) > 250){
+        zlutaMiska.vylozSiTrochu();
+      }
+   }
+*/
+    while (kuchynskaVaha.zjistiHmotnost(zlutaMiska)!=250){
+      while (kuchynskaVaha.zjistiHmotnost(zlutaMiska)<250){
+        zlutaMiska.nalozSiTrochu(pytlikMouky);
+      }
+      while (kuchynskaVaha.zjistiHmotnost(zlutaMiska)>250){
+        zlutaMiska.vylozSiTrochu(pytlikMouky);
+      }
+    }
+
+
+
+  cervenaMiska.nalozSiObsahJineMisky(zlutaMiska);
+  cervenaMiska.nalozSiCelyObsah(prasekDoPeciva);
+
+  while(!cervenaMiska.isDobreZamichane()) {
+      mixer.zamichej(cervenaMiska);
+  }
+  plech.preberSiObsah(cervenaMiska);
+
+  for(int i = 0;i<50;i++){
+    plech.posypSeKusem(ovoce);
   }
 
+  trouba.zapniSe(180);
+  while(!trouba.isPredehrata()){
+      trouba.nechejPect(5);
+  }
+  trouba.vlozSiDovnitr(plech);
+  trouba.nechejPect(25);
+  trouba.vypniSe();
+  trouba.vyndejObsahVen();
+
+
+
+
+
+
+
+/*     while(kuchynskaVaha.zjistiHmotnost(zlutaMiska)<=250){
+      zlutaMiska.nalozSiTrochu(pytlikMouky);
+   }
+
+ */
+
+
+
+
+  /*  while(zlutaMiska<250){
+      zlutaMiska.nalozSiTrochu(pytlikMouky);
+    }
+*/
+
+ /*   boolean dobreZamichane = cervenaMiska.isDobreZamichane();
+    while(dobreZamichane==false){
+      mixer.zamichej(cervenaMiska);
+    }
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+  }
 }
